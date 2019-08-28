@@ -1,0 +1,29 @@
+
+.Name{
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .userId{
+    color:gray;
+    font-size:18px
+  }
+  
+  .btn{
+    margin-top:20px;
+    width:200px;
+    height: 40px;
+    text-align: center;
+    padding:10px;
+  }
+  
+  .location{
+    margin-top:20px;
+    font-size: 8px;
+  }
+  
+  .img{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width:200px;
+  }
