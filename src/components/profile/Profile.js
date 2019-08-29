@@ -29,7 +29,7 @@ export default class Profile extends React.Component{
                 <img className='img' src={this.state.src} />
                 <div className='Name'>{this.state.name}</div>
                 <div className='userId'>{this.state.user}</div>
-                <button className='btn' onClick={()=>this.handleOnClick()}>Follow : Total={this.state.count}</button>
+                <button className='btn' onClick={()=>this.handleOnClick()}>Follow : Total={this.props.count}</button>
                 <div className='location'>{this.state.location}</div>
             </div>
         )
