@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import './login.css'
+import Clock from './Clock'
+
 const Header = (props) => <div className='label'>{props.title}</div>
 
 
@@ -10,8 +12,7 @@ export default class Form extends Component{
             userName:'',
             password:'',
             auth:false,
-            data:'',
-            dataCollect:false
+    
         }
     }
 
@@ -27,7 +28,8 @@ export default class Form extends Component{
         if(this.state.userName==='masai_school'&&this.state.password==='password'){
             alert('true')
             this.setState({
-                auth:true
+                auth:true,
+                
             })
         }
         else
@@ -40,6 +42,11 @@ export default class Form extends Component{
     }
 
 
+
+    tick = () => {
+        this.setState({time: this.state.time+1})
+    }
+
     render(){
         return(
             <div className='form'>
@@ -49,12 +56,14 @@ export default class Form extends Component{
                 <Header title='Password'/>
                 <input type='password' onChange={(e)=>this.setState({password:e.target.value})}></input>
                 <div>
+                    
                 {this.state.auth?
                     (<div>
                         <div>{this.state.data}</div>
                         <button className='btn-login' onClick={()=>this.handleSignOut()}>
                             SIGN OUT
                         </button>
+                        <Clock/>
                         <div>
                             HEY YOU ARE LOGGED IN
                         </div>
