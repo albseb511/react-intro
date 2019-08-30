@@ -1,7 +1,14 @@
 import React from 'react'
-import { tsThisType } from '@babel/types';
 
 
+// Mounting
+
+// These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+
+//     constructor()
+//     static getDerivedStateFromProps()
+//     render()
+//     componentDidMount()
 
 export default class Clock extends React.Component{
     constructor(props){
@@ -12,7 +19,7 @@ export default class Clock extends React.Component{
         }
     }
 
-    increment = () => this.setState({time:this.state.time+1})
+    increment = () => this.setState({time: this.state.time + 1})
 
     componentDidMount(){
         console.log('component mounted')
@@ -24,9 +31,13 @@ export default class Clock extends React.Component{
         clearInterval(this.timer)
     }
 
+    componentDidUpdate(){
+        console.log('Component did update called')
+    }
     
 
     render(){
+        console.log('render called')
         return(
             <div>Time: {this.state.time}</div>
         )
