@@ -1,0 +1,8 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+}
+.navbar > div {
+    flex:1;
+    text-align: center;
+}

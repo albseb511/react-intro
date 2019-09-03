@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './login.css'
 import Clock from './Clock'
+import {Link} from 'react-router-dom'
 
 const Header = (props) => <div className='label'>{props.title}</div>
 
@@ -67,6 +68,7 @@ export default class Form extends Component{
                         <div>
                             HEY YOU ARE LOGGED IN
                         </div>
+
                      </div>):
                      (<button className='btn-login' onClick={()=>this.handleClick()}>LOG IN</button>)}
                     
