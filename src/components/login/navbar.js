@@ -7,6 +7,8 @@ export default class Navbar extends Component{
                 <div><Link to='/'>Home</Link></div>
                 <div><Link to='/about'>About</Link></div>
                 <div><Link to='/contact'>Contact</Link></div>
+                <div><Link to='/user1'>User 1</Link></div>
+                <div><Link to='/user2'>User 2</Link></div>
             </div>
         )
     }
