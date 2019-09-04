@@ -5,6 +5,7 @@ import Login from './components/login/Login'
 import Navbar from './components/login/navbar'
 import { BrowserRouter,Route,Switch } from 'react-router-dom'
 import List from './components/profile/List';
+import Search from './components/api/search';
 
 const About = () => <div>This is the about page</div>
 const Contact = () => <div>This is the Contact page</div>
@@ -15,6 +16,7 @@ function App() {
           <Navbar/>
           {/* <Login/> */}
           <Switch>
+            <Route exact path='/api' component={Search}/>
             <Route path='/' render={(props)=><Login name='Masai' {...props}/>}/>
             <Route path='/about' component={About}/>
             <Route path='/contact' component={Contact}/>
