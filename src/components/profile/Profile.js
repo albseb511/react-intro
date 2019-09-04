@@ -5,18 +5,32 @@ import './Profile.css'
 export default class Profile extends React.Component{
     constructor(props){
         super(props)
-        console.log(this.props.data)
+        this.state={
+            src:this.props.src,
+            name:this.props.name,
+            user:this.props.user,
+            location:this.props.location,
+            count:this.props.count
+        }
     }
 
+    handleOnClick = ()=> {
+        
+        this.setState({
+            count: this.state.count+1
+        })
+
+        this.props.follow(this.state.name,this.state.count)
+    }
 
     render(){
         return(
             <div>
-                <img className='img' src={this.props.data.src} />
-                <div className='Name'>{this.props.data.name}</div>
-                <div className='userId'>{this.props.data.user}</div>
-                <button className='btn'>Follow : Total={this.props.data.count}</button>
-                <div className='location'>{this.props.data.location}</div>
+                <img className='img' src={this.state.src} />
+                <div className='Name'>{this.state.name}</div>
+                <div className='userId'>{this.state.user}</div>
+                <button className='btn' onClick={()=>this.handleOnClick()}>Follow : Total={this.props.count}</button>
+                <div className='location'>{this.state.location}</div>
             </div>
         )
     }

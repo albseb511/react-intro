@@ -1,10 +1,21 @@
 import React, {Component} from 'react'
 import './login.css'
 import Clock from './Clock'
-import {Link} from 'react-router-dom'
+import {Route,Redirect} from 'react-router-dom'
 
 const Header = (props) => <div className='label'>{props.title}</div>
 
+const Dash = (props) => {return(<div>
+                                    <button className='btn-login' onClick={()=>props.signout()}>
+                                        SIGN OUT
+                                    </button>
+                                    <Clock/>
+                                    <div>
+                                        HEY YOU ARE LOGGED IN
+                                    </div>
+                                </div>)}
+ 
+const LoginButton = (props) => {return(<button className='btn-login' onClick={()=>props.click()}>LOG IN</button>)}
 
 export default class Form extends Component{
     constructor(props){
@@ -59,19 +70,11 @@ export default class Form extends Component{
                 <div>
                     
                 {this.state.auth?
-                    (<div>
-                        <div>{this.state.data}</div>
-                        <button className='btn-login' onClick={()=>this.handleSignOut()}>
-                            SIGN OUT
-                        </button>
-                        <Clock/>
-                        <div>
-                            HEY YOU ARE LOGGED IN
-                        </div>
-
-                     </div>):
-                     (<button className='btn-login' onClick={()=>this.handleClick()}>LOG IN</button>)}
+                    (<Redirect to='/dash'/>):
+                     (<Redirect to='/loginButton'/>)}
                     
+                <Route path='/dash' render={()=>{return(<Dash signout={()=>this.handleSignOut()} />)}} />
+                <Route path='/loginButton' render={()=>{return(<LoginButton click={()=>this.handleClick()} />)}} />
                 </div>
                 
             </div>

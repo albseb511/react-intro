@@ -15,7 +15,7 @@ function App() {
           <Navbar/>
           {/* <Login/> */}
           <Switch>
-            <Route exact path='/' render={(props)=><Login name='Masai' {...props}/>}/>
+            <Route path='/' render={(props)=><Login name='Masai' {...props}/>}/>
             <Route path='/about' component={About}/>
             <Route path='/contact' component={Contact}/>
             <Route exact path='/user:id' render={(props)=><List {...props}/>}/>
